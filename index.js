@@ -11,6 +11,10 @@ const app = express();
 // using middlewares
 app.use(bodyParser.json());
 app.use(helmet());
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 const PORT = 3000;
 
